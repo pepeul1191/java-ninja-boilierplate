@@ -3,19 +3,26 @@ package controllers;
 import ninja.Result;
 import ninja.Results;
 import com.google.inject.Singleton;
-import ninja.FilterWith;
-import filters.BeforeAllFilter;
+//import ninja.FilterWith;
+//import filters.BeforeAllFilter;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 
 @Singleton
 public class ApplicationController {
-  @FilterWith(BeforeAllFilter.class)
+  //@FilterWith(BeforeAllFilter.class)
+  protected Config constants;
+  public ApplicationController(){
+    this.constants = ConfigFactory.parseResources("conf/application.conf");
+  }
+
   public Result index() {
     return Results.html();
   }
     
   public Result helloWorldJson() {      
     SimplePojo simplePojo = new SimplePojo();
-    simplePojo.content = "Hello World! Hello Json!";
+    simplePojo.content = "Hello World! Hello Json!" + this.constants.getString("base_url");
     return Results.json().render(simplePojo);
   }
 
