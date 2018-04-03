@@ -3,9 +3,12 @@ package controllers;
 import ninja.Result;
 import ninja.Results;
 import com.google.inject.Singleton;
+import ninja.FilterWith;
+import filters.BeforeAllFilter;
 
 @Singleton
 public class ApplicationController {
+  @FilterWith(BeforeAllFilter.class)
   public Result index() {
     return Results.html();
   }

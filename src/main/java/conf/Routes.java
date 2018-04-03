@@ -12,14 +12,11 @@ public class Routes implements ApplicationRoutes {
     router.GET().route("/").with(ApplicationController::index);
     router.GET().route("/hello_world.json").with(ApplicationController::helloWorldJson);
     router.GET().route("/departamento/listar").with(DepartamentoController::listar);
-
-
     ///////////////////////////////////////////////////////////////////////
     // Assets (pictures / javascript)
     ///////////////////////////////////////////////////////////////////////    
     router.GET().route("/assets/webjars/{fileName: .*}").with(AssetsController::serveWebJars);
     router.GET().route("/assets/{fileName: .*}").with(AssetsController::serveStatic);
-
     ///////////////////////////////////////////////////////////////////////
     // Index / Catchall shows index page
     ///////////////////////////////////////////////////////////////////////
