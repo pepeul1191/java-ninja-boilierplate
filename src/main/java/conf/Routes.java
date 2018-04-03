@@ -6,6 +6,7 @@ import ninja.application.ApplicationRoutes;
 import controllers.ApplicationController;
 import controllers.HomeController;
 import controllers.DepartamentoController;
+import controllers.LoginController;
 
 public class Routes implements ApplicationRoutes {
   @Override
@@ -13,6 +14,8 @@ public class Routes implements ApplicationRoutes {
     router.GET().route("/").with(HomeController::index);
     router.GET().route("/hello_world.json").with(ApplicationController::helloWorldJson);
     router.GET().route("/departamento/listar").with(DepartamentoController::listar);
+    router.GET().route("/login").with(LoginController::index);
+    router.POST().route("/login/acceder").with(LoginController::acceder);
     ///////////////////////////////////////////////////////////////////////
     // Assets (pictures / javascript)
     ///////////////////////////////////////////////////////////////////////    

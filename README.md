@@ -10,3 +10,4 @@ Fuentes:
 + http://www.ninjaframework.org/documentation/getting_started/create_your_first_application.html
 + https://github.com/lightbend/config
 + https://dzone.com/articles/typesafe-config-features-and-example-usage
++ https://freemarker.apache.org/docs/ref_directive_if.html
