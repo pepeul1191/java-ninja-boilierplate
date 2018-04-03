@@ -6,9 +6,10 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class UbicacionesDepartamentoProvider {
   public static String listar(Config constants) {
+    String urlServicio = constants.getString("servicios.ubicaciones");
     String rpta;
     try {
-			rpta = Unirest.get(constants.getString("servicios.ubicaciones") + "departamento/listar")
+			rpta = Unirest.get(urlServicio + "departamento/listar")
 			  .asJson().getBody().toString();
 		} catch (UnirestException e) {
 			//e.printStackTrace();
