@@ -22,6 +22,7 @@ import ninja.AssetsController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
 import controllers.ApplicationController;
+import controllers.DepartamentoController;
 
 public class Routes implements ApplicationRoutes {
 
@@ -30,6 +31,7 @@ public class Routes implements ApplicationRoutes {
         
         router.GET().route("/").with(ApplicationController::index);
         router.GET().route("/hello_world.json").with(ApplicationController::helloWorldJson);
+        router.GET().route("/departamento/listar").with(DepartamentoController::listar);
         
  
         ///////////////////////////////////////////////////////////////////////

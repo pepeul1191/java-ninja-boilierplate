@@ -5,14 +5,14 @@ import ninja.Results;
 import com.google.inject.Singleton;
 
 @Singleton
-public class ApplicationController {
+public class DepartamentoController {
     public Result index() {
         return Results.html();
     }
     
-    public Result helloWorldJson() {      
+    public Result listar() {      
         SimplePojo simplePojo = new SimplePojo();
-        simplePojo.content = "Hello World! Hello Json!";
+        simplePojo.content = "Listar departamentos";
         return Results.json().render(simplePojo);
     }
     
