@@ -17,6 +17,7 @@ public class Routes implements ApplicationRoutes {
     router.GET().route("/login").with(LoginController::index);
     router.POST().route("/login/acceder").with(LoginController::acceder);
     router.GET().route("/usuario/ver").with(LoginController::ver);
+    router.GET().route("/usuario/salir").with(LoginController::salir);
     ///////////////////////////////////////////////////////////////////////
     // Assets (pictures / javascript)
     ///////////////////////////////////////////////////////////////////////    

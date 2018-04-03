@@ -50,4 +50,9 @@ public class LoginController extends ApplicationController {
     String rpta = "<h1>Usuario Logeado</h1><ul><li>" + session.get("usuario") + "</li><li>" +  session.get("tiempo") + "</li><li>" + session.get("estado") + "</li></ul>";
     return Results.text().render(rpta);
   }
+
+  public Result salir(Session session){
+    session.clear();
+    return Results.redirect("/login");
+  }
 }
