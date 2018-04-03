@@ -3,11 +3,14 @@ package controllers;
 import ninja.Context;
 import ninja.Result;
 import ninja.Results;
-import providers.AccesosUsuarioProvider;
-
+import ninja.session.*;
+import java.text.DateFormat;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import com.google.inject.Singleton;
 import helpers.LoginHelper;
 import helpers.ViewHelper;
+import providers.AccesosUsuarioProvider;
 
 @Singleton
 public class LoginController extends ApplicationController {
@@ -21,13 +24,17 @@ public class LoginController extends ApplicationController {
     return result;
   }  
   
-  public Result acceder(Context context) {
+  public Result acceder(Context context, Session session) {
     String usuario = context.getParameter("usuario");
     String contrasenia = context.getParameter("contrasenia");
     String rpta = AccesosUsuarioProvider.acceder(this.constants, usuario, contrasenia);
     Result result;
     if(rpta.equalsIgnoreCase("1")){
-      result = Results.redirect("/home");
+      DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); Date date = new Date();
+      session.put("usuario", usuario);
+      session.put("estado", "activo");
+      session.put("tiempo", dateFormat.format(date));
+      result = Results.redirect("/");
     }else{
       result = Results.html().template("/views/login/index.ftl.html");
       result.render("title", "Bienvenido");
@@ -37,5 +44,10 @@ public class LoginController extends ApplicationController {
       result.render("load_js", ViewHelper.loadJS(this.constants, LoginHelper.indexJS(this.constants)));
     }
     return result;
-  }  
+  }
+  
+  public Result ver(Session session){
+    String rpta = "<h1>Usuario Logeado</h1><ul><li>" + session.get("usuario") + "</li><li>" +  session.get("tiempo") + "</li><li>" + session.get("estado") + "</li></ul>";
+    return Results.text().render(rpta);
+  }
 }
