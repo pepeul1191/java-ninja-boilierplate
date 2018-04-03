@@ -3,7 +3,6 @@ package controllers;
 import ninja.Result;
 import ninja.Results;
 import com.google.inject.Singleton;
-
 import helpers.HomeHelper;
 import helpers.ViewHelper;
 

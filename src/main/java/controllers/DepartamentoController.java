@@ -2,9 +2,9 @@ package controllers;
 
 import ninja.Result;
 import ninja.Results;
+import providers.UbicacionesDepartamentoProvider;
+
 import com.google.inject.Singleton;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import ninja.FilterWith;
 import filters.CorsHeaders;;
 
@@ -16,14 +16,7 @@ public class DepartamentoController extends ApplicationController{
   
   @FilterWith(CorsHeaders.class)
   public Result listar() {      
-    String rpta;
-    try {
-			rpta = Unirest.get(this.constants.getString("servicios.ubicaciones") + "departamento/listar")
-			  .asJson().getBody().toString();
-		} catch (UnirestException e) {
-			//e.printStackTrace();
-      rpta = e.toString();
-    }
+    String rpta = UbicacionesDepartamentoProvider.listar(this.constants);
     return Results.text().render(rpta);
   }
   
