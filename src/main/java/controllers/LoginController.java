@@ -13,6 +13,7 @@ import helpers.LoginHelper;
 import helpers.ViewHelper;
 import providers.AccesosUsuarioProvider;
 import filters.LoginViewGetFalseFilter;
+import filters.CsrfViewPost;
 
 @Singleton
 public class LoginController extends ApplicationController {
@@ -27,6 +28,7 @@ public class LoginController extends ApplicationController {
     return result;
   }  
   
+  @FilterWith(CsrfViewPost.class)
   public Result acceder(Context context, Session session) {
     String usuario = context.getParameter("usuario");
     String contrasenia = context.getParameter("contrasenia");
