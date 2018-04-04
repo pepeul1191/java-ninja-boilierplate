@@ -3,10 +3,9 @@ package controllers;
 import ninja.Result;
 import ninja.Results;
 import providers.UbicacionesDepartamentoProvider;
-
 import com.google.inject.Singleton;
 import ninja.FilterWith;
-import filters.CorsHeaders;;
+import filters.CorsHeadersFilter;
 
 @Singleton
 public class DepartamentoController extends ApplicationController{
@@ -14,7 +13,7 @@ public class DepartamentoController extends ApplicationController{
     return Results.html();
   }
   
-  @FilterWith(CorsHeaders.class)
+  @FilterWith(CorsHeadersFilter.class)
   public Result listar() {      
     String rpta = UbicacionesDepartamentoProvider.listar(this.constants);
     return Results.text().render(rpta);

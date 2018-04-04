@@ -4,6 +4,7 @@ import ninja.Context;
 import ninja.Result;
 import ninja.Results;
 import ninja.session.*;
+import ninja.FilterWith;
 import java.text.DateFormat;
 import java.util.Date;
 import java.text.SimpleDateFormat;

@@ -5,7 +5,7 @@ import ninja.Filter;
 import ninja.FilterChain;
 import ninja.Result;
 
-public class CorsHeaders implements Filter {
+public class CorsHeadersFilter implements Filter {
 	@Override
 	public Result filter(FilterChain filterChain, Context context) {
     Result result = filterChain.next(context);

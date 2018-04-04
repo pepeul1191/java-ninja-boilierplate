@@ -2,12 +2,15 @@ package controllers;
 
 import ninja.Result;
 import ninja.Results;
+import ninja.FilterWith;
 import com.google.inject.Singleton;
 import helpers.HomeHelper;
 import helpers.ViewHelper;
+import filters.LoginViewGetFilter;
 
 @Singleton
 public class HomeController extends ApplicationController {
+  @FilterWith(LoginViewGetFilter.class)
   public Result index() {
     Result result = Results.html().template("/views/home/index.ftl.html");
     result.render("id", Integer.toString(1234));
