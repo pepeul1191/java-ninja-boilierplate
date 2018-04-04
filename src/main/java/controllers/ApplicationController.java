@@ -19,6 +19,10 @@ public class ApplicationController {
   public Result index() {
     return Results.html();
   }
+
+  public Result test() {
+    return Results.text().render("Conexión OK");
+  }
     
   public Result helloWorldJson() {      
     SimplePojo simplePojo = new SimplePojo();

@@ -12,3 +12,5 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 src/main/java/assets/bower_components
 src/main/java/dist
+
+Gemfile.lock
