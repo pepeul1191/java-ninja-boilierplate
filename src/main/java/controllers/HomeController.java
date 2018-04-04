@@ -6,11 +6,11 @@ import ninja.FilterWith;
 import com.google.inject.Singleton;
 import helpers.HomeHelper;
 import helpers.ViewHelper;
-import filters.LoginViewGetFilter;
+import filters.LoginViewGetTrueFilter;
 
 @Singleton
 public class HomeController extends ApplicationController {
-  @FilterWith(LoginViewGetFilter.class)
+  @FilterWith(LoginViewGetTrueFilter.class)
   public Result index() {
     Result result = Results.html().template("/views/home/index.ftl.html");
     result.render("id", Integer.toString(1234));

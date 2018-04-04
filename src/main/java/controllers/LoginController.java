@@ -12,9 +12,11 @@ import com.google.inject.Singleton;
 import helpers.LoginHelper;
 import helpers.ViewHelper;
 import providers.AccesosUsuarioProvider;
+import filters.LoginViewGetFalseFilter;
 
 @Singleton
 public class LoginController extends ApplicationController {
+  @FilterWith(LoginViewGetFalseFilter.class)
   public Result index() {
     Result result = Results.html().template("/views/login/index.ftl.html");
     result.render("title", "Bienvenido");
