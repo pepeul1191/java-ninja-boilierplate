@@ -221,5 +221,16 @@
             <artifactId>json</artifactId>
             <version>20140107</version>
         </dependency>
+        <!-- Base de Datos -->
+		<dependency>
+		    <groupId>org.xerial</groupId>
+		    <artifactId>sqlite-jdbc</artifactId>
+		    <version>3.18.0</version>
+		</dependency>	
+		<dependency>
+	      <groupId>com.j256.ormlite</groupId>
+	      <artifactId>ormlite-jdbc</artifactId>
+	      <version>5.0</version>
+	   	</dependency>		
     </dependencies>
 </project>

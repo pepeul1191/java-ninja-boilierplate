@@ -11,3 +11,5 @@ Fuentes:
 + https://github.com/lightbend/config
 + https://dzone.com/articles/typesafe-config-features-and-example-usage
 + https://freemarker.apache.org/docs/ref_directive_if.html
++ http://ormlite.com/
++ https://stackoverflow.com/questions/11987552/ormlite-joins-or-rawquery-auto-mapping
